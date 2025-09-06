@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 const challenges = [
   {
@@ -8,7 +9,7 @@ const challenges = [
     title: 'Epic Bottle Flip Challenge',
     description: 'Can you land the most epic bottle flip? Show us your skills!',
     videoUrl: '', // Placeholder for video
-    thumbnailUrl: 'https://placehold.co/400x225?text=Bottle+Flip',
+        thumbnailUrl: '/images/bottle-flip.png',
     likes: 150,
     deadline: '2024-07-21',
     category: 'Fun',
@@ -22,7 +23,7 @@ const challenges = [
     title: 'Dance Craze Challenge',
     description: 'Learn this viral dance and show us your moves!',
     videoUrl: '', // Placeholder for video
-    thumbnailUrl: 'https://placehold.co/400x225?text=Dance+Craze',
+        thumbnailUrl: '/images/dance-craze.png',
     likes: 320,
     deadline: '2024-07-28',
     category: 'Dance',
@@ -33,11 +34,11 @@ const challenges = [
     title: 'Super Soda Challenge',
     description: 'Show us your best reaction to our new soda flavor!',
     videoUrl: '', // Placeholder for video
-    thumbnailUrl: 'https://placehold.co/400x225?text=Super+Soda',
+        thumbnailUrl: '/images/super-soda.png',
     likes: 500,
     deadline: '2024-08-01',
     sponsored: true,
-    brandLogo: 'https://www.logodesign.net/logo/abstract-soda-can-with-bubbles-5896ld.png',
+        brandLogo: '/images/brand-logo.png',
     category: 'Food',
     comments: [],
   },
@@ -79,7 +80,7 @@ const ChallengeFeed = () => {
         <div key={challenge.id} className="border rounded-lg p-4 mb-4">
           {challenge.sponsored && (
             <div className="flex items-center mb-2">
-              <img src={challenge.brandLogo} alt="Brand Logo" className="w-6 h-6 mr-2" />
+              <Image src={challenge.brandLogo} alt="Brand Logo" width={24} height={24} className="w-6 h-6 mr-2" />
               <span className="text-sm font-bold text-gray-500">Sponsored</span>
             </div>
           )}
@@ -99,10 +100,12 @@ const ChallengeFeed = () => {
                 poster={challenge.thumbnailUrl}
               />
             ) : (
-              <img
+              <Image
                 className="w-full h-64 mt-2 object-cover bg-black"
                 src={challenge.thumbnailUrl}
                 alt={challenge.title}
+                width={400}
+                height={225}
               />
             )}
           </div>

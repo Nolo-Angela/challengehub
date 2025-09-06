@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import Image from 'next/image';
+import React from 'react';
 
 const badges = [
   { id: 1, name: 'First Challenge', icon: '🏆' },
@@ -8,18 +9,10 @@ const badges = [
 ];
 
 const UserProfile = () => {
-  const [isFollowing, setIsFollowing] = useState(false);
-  const [followers, setFollowers] = useState(1200);
-
-  const handleFollow = () => {
-    setIsFollowing(!isFollowing);
-    setFollowers(isFollowing ? followers - 1 : followers + 1);
-  };
-
   return (
     <div className="p-4">
       <div className="flex items-center mb-4">
-        <img className="w-24 h-24 rounded-full mr-4" src="https://randomuser.me/api/portraits/men/10.jpg" alt="User avatar" />
+                <Image className="w-24 h-24 rounded-full mr-4" src="/images/avatar-1.jpg" alt="User avatar" width={96} height={96} />
         <div>
           <h2 className="text-2xl font-bold">John Doe</h2>
           <p className="text-gray-500">Challenge enthusiast | Tech lover | Coffee addict</p>
@@ -27,7 +20,7 @@ const UserProfile = () => {
       </div>
       <div className="flex justify-around">
         <div className="text-center">
-          <p className="font-bold text-xl">{followers}</p>
+          <p className="font-bold text-xl">1200</p>
           <p className="text-gray-500">Followers</p>
         </div>
         <div className="text-center">

@@ -1,11 +1,12 @@
 import React from 'react';
+import Image from 'next/image';
 
 const leaderboardData = [
-  { id: 1, name: 'Alex', score: 2500, avatar: 'https://randomuser.me/api/portraits/men/1.jpg' },
-  { id: 2, name: 'Samantha', score: 2300, avatar: 'https://randomuser.me/api/portraits/women/2.jpg' },
-  { id: 3, name: 'John', score: 2100, avatar: 'https://randomuser.me/api/portraits/men/3.jpg' },
-  { id: 4, name: 'Maria', score: 1900, avatar: 'https://randomuser.me/api/portraits/women/4.jpg' },
-  { id: 5, name: 'David', score: 1700, avatar: 'https://randomuser.me/api/portraits/men/5.jpg' },
+  { id: 1, name: 'Alex', score: 2500, avatar: '/images/avatar-2.jpg' },
+  { id: 2, name: 'Samantha', score: 2300, avatar: '/images/avatar-3.jpg' },
+  { id: 3, name: 'John', score: 2100, avatar: '/images/avatar-4.jpg' },
+  { id: 4, name: 'Maria', score: 1900, avatar: '/images/avatar-5.jpg' },
+  { id: 5, name: 'David', score: 1700, avatar: '/images/avatar-6.jpg' },
 ];
 
 const Leaderboard = () => {
@@ -20,7 +21,7 @@ const Leaderboard = () => {
             <li key={user.id} className="py-3 sm:py-4">
               <div className="flex items-center space-x-4">
                 <div className="flex-shrink-0">
-                  <img className="w-8 h-8 rounded-full" src={user.avatar} alt={`${user.name} avatar`} />
+                  <Image className="w-8 h-8 rounded-full" src={user.avatar} alt={`${user.name} avatar`} width={32} height={32} />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
