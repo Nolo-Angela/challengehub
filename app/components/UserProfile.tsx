@@ -23,9 +23,6 @@ const UserProfile = () => {
           <h2 className="text-2xl font-bold">John Doe</h2>
           <p className="text-gray-500">Challenge enthusiast | Tech lover | Coffee addict</p>
         </div>
-        <button onClick={handleFollow} className="ml-auto bg-blue-500 text-white px-4 py-2 rounded-lg">
-          {isFollowing ? 'Following' : 'Follow'}
-        </button>
       </div>
       <div className="flex justify-around">
         <div className="text-center">

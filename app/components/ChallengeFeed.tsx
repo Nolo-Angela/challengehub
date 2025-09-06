@@ -41,7 +41,7 @@ const challenges = [
 ];
 
 const ChallengeFeed = () => {
-  const [posts, setPosts] = useState(challenges);
+  const [posts, setPosts] = useState(challenges.map(c => ({ ...c, isFollowing: false })));
   const [filter, setFilter] = useState('All');
   const [muted, setMuted] = useState(true);
 
@@ -49,6 +49,14 @@ const ChallengeFeed = () => {
     setPosts(
       posts.map((post) =>
         post.id === id ? { ...post, likes: post.likes + 1 } : post
+      )
+    );
+  };
+
+  const handleFollow = (id: number) => {
+    setPosts(
+      posts.map((post) =>
+        post.id === id ? { ...post, isFollowing: !post.isFollowing } : post
       )
     );
   };
@@ -93,6 +101,9 @@ const ChallengeFeed = () => {
               <button className="flex items-center space-x-1">
                 <span>🔗</span>
                 <span>Share</span>
+              </button>
+              <button onClick={() => handleFollow(challenge.id)} className="flex items-center space-x-1 bg-blue-500 text-white px-3 py-1 rounded-lg">
+                <span>{challenge.isFollowing ? 'Following' : 'Follow'}</span>
               </button>
             </div>
           </div>
