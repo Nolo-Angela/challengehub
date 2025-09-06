@@ -8,6 +8,7 @@ const challenges = [
     title: 'Epic Bottle Flip Challenge',
     description: 'Can you land the most epic bottle flip? Show us your skills!',
     videoUrl: '', // Placeholder for video
+    thumbnailUrl: 'https://via.placeholder.com/400x225.png?text=Bottle+Flip',
     likes: 150,
     deadline: '2024-07-21',
     category: 'Fun',
@@ -21,6 +22,7 @@ const challenges = [
     title: 'Dance Craze Challenge',
     description: 'Learn this viral dance and show us your moves!',
     videoUrl: '', // Placeholder for video
+    thumbnailUrl: 'https://via.placeholder.com/400x225.png?text=Dance+Craze',
     likes: 320,
     deadline: '2024-07-28',
     category: 'Dance',
@@ -31,6 +33,7 @@ const challenges = [
     title: 'Super Soda Challenge',
     description: 'Show us your best reaction to our new soda flavor!',
     videoUrl: '', // Placeholder for video
+    thumbnailUrl: 'https://via.placeholder.com/400x225.png?text=Super+Soda',
     likes: 500,
     deadline: '2024-08-01',
     sponsored: true,
@@ -66,11 +69,11 @@ const ChallengeFeed = () => {
   return (
     <div>
       <div className="flex justify-center space-x-4 mb-4">
-        <button onClick={() => setFilter('All')} className={`px-4 py-2 rounded-lg ${filter === 'All' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}>All</button>
-        <button onClick={() => setFilter('Fun')} className={`px-4 py-2 rounded-lg ${filter === 'Fun' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}>Fun</button>
-        <button onClick={() => setFilter('Dance')} className={`px-4 py-2 rounded-lg ${filter === 'Dance' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}>Dance</button>
-        <button onClick={() => setFilter('Food')} className={`px-4 py-2 rounded-lg ${filter === 'Food' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}>Food</button>
-        <button onClick={() => setMuted(!muted)} className="px-4 py-2 rounded-lg bg-gray-200">{muted ? 'Unmute' : 'Mute'}</button>
+        <button onClick={() => setFilter('All')} className={`px-4 py-2 rounded-lg ${filter === 'All' ? 'bg-purple-600 text-white' : 'bg-gray-700 text-gray-300'}`}>All</button>
+        <button onClick={() => setFilter('Fun')} className={`px-4 py-2 rounded-lg ${filter === 'Fun' ? 'bg-purple-600 text-white' : 'bg-gray-700 text-gray-300'}`}>Fun</button>
+        <button onClick={() => setFilter('Dance')} className={`px-4 py-2 rounded-lg ${filter === 'Dance' ? 'bg-purple-600 text-white' : 'bg-gray-700 text-gray-300'}`}>Dance</button>
+        <button onClick={() => setFilter('Food')} className={`px-4 py-2 rounded-lg ${filter === 'Food' ? 'bg-purple-600 text-white' : 'bg-gray-700 text-gray-300'}`}>Food</button>
+        <button onClick={() => setMuted(!muted)} className="px-4 py-2 rounded-lg bg-gray-700 text-gray-300">{muted ? 'Unmute' : 'Mute'}</button>
       </div>
       {filteredPosts.map((challenge) => (
         <div key={challenge.id} className="border rounded-lg p-4 mb-4">
@@ -84,7 +87,7 @@ const ChallengeFeed = () => {
             <h3 className="font-bold">{challenge.title}</h3>
             <span className="text-sm font-bold text-gray-500">{challenge.category}</span>
            </div>
-          <video className="w-full h-64 mt-2 bg-black" autoPlay loop muted={muted} playsInline src={challenge.videoUrl}>
+          <video className="w-full h-64 mt-2 bg-black" autoPlay loop muted={muted} playsInline src={challenge.videoUrl} poster={challenge.thumbnailUrl}>
           </video>
           <p className="mt-2">{challenge.description}</p>
           <p className="text-sm text-gray-500 mt-2">Deadline: {new Date(challenge.deadline).toLocaleDateString()}</p>
