@@ -8,7 +8,7 @@ const challenges = [
     title: 'Epic Bottle Flip Challenge',
     description: 'Can you land the most epic bottle flip? Show us your skills!',
     videoUrl: '', // Placeholder for video
-    thumbnailUrl: 'https://via.placeholder.com/400x225.png?text=Bottle+Flip',
+    thumbnailUrl: 'https://placehold.co/400x225?text=Bottle+Flip',
     likes: 150,
     deadline: '2024-07-21',
     category: 'Fun',
@@ -22,7 +22,7 @@ const challenges = [
     title: 'Dance Craze Challenge',
     description: 'Learn this viral dance and show us your moves!',
     videoUrl: '', // Placeholder for video
-    thumbnailUrl: 'https://via.placeholder.com/400x225.png?text=Dance+Craze',
+    thumbnailUrl: 'https://placehold.co/400x225?text=Dance+Craze',
     likes: 320,
     deadline: '2024-07-28',
     category: 'Dance',
@@ -33,7 +33,7 @@ const challenges = [
     title: 'Super Soda Challenge',
     description: 'Show us your best reaction to our new soda flavor!',
     videoUrl: '', // Placeholder for video
-    thumbnailUrl: 'https://via.placeholder.com/400x225.png?text=Super+Soda',
+    thumbnailUrl: 'https://placehold.co/400x225?text=Super+Soda',
     likes: 500,
     deadline: '2024-08-01',
     sponsored: true,
@@ -87,8 +87,25 @@ const ChallengeFeed = () => {
             <h3 className="font-bold">{challenge.title}</h3>
             <span className="text-sm font-bold text-gray-500">{challenge.category}</span>
            </div>
-          <video className="w-full h-64 mt-2 bg-black" autoPlay loop muted={muted} playsInline src={challenge.videoUrl} poster={challenge.thumbnailUrl}>
-          </video>
+          <div>
+            {challenge.videoUrl ? (
+              <video
+                className="w-full h-64 mt-2 bg-black"
+                autoPlay
+                loop
+                muted={muted}
+                playsInline
+                src={challenge.videoUrl}
+                poster={challenge.thumbnailUrl}
+              />
+            ) : (
+              <img
+                className="w-full h-64 mt-2 object-cover bg-black"
+                src={challenge.thumbnailUrl}
+                alt={challenge.title}
+              />
+            )}
+          </div>
           <p className="mt-2">{challenge.description}</p>
           <p className="text-sm text-gray-500 mt-2">Deadline: {new Date(challenge.deadline).toLocaleDateString()}</p>
           <div className="flex justify-between items-center mt-4">
