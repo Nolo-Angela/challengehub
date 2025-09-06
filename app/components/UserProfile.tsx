@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { useState } from 'react';
 
 const badges = [
@@ -48,6 +49,11 @@ const UserProfile = () => {
             </div>
           ))}
         </div>
+      </div>
+      <div className="mt-8 text-center">
+        <Link href="/sponsor" className="inline-block bg-green-500 text-white px-6 py-3 rounded-lg font-bold">
+          Become a Sponsor
+        </Link>
       </div>
     </div>
   );
